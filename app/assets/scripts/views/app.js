@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import config from '../config';
 
 var App = React.createClass({
   displayName: 'App',
@@ -15,8 +16,8 @@ var App = React.createClass({
         <header className='site-header' role='banner'>
           <div className='inner'>
             <div className='site-headline'>
-              <h1 className='site-title'>Devseed Sense Lisbon
-                {/* <a href='/' title='Visit homepage'>Glacial Inferno</a> */}
+              <h1 className='site-title'>
+                <a href={'https://opensensemap.org/explore/' + config.senseBox.id}>{config.title}</a>
               </h1>
             </div>
           </div>
@@ -26,7 +27,7 @@ var App = React.createClass({
           {this.props.children}
         </main>
         <footer className='site-footer' role='footer'>
-          <p>Made with love by <a href='https://developmentseed.org' title='Visit Development Seed website'>Development Seed</a> using <a href='http://opensensemap.org' title='Visit OpenSenseMap website'>OpenSenseMap</a> data</p> 
+          <p> Made with love by <a href='https://developmentseed.org' title='Visit Development Seed website' target="_blank">Development Seed</a> using <a href={'https://opensensemap.org/explore/' + config.senseBox.id} title='Visit openSenseMap website' target="_blank">openSenseMap</a> data </p>
         </footer>
       </div>
     );

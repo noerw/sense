@@ -29,6 +29,8 @@ const sensorLuminosity = sensorReducerFactory('luminosity');
 const sensorPressure = sensorReducerFactory('pressure');
 const sensorHumidity = sensorReducerFactory('humidity');
 const sensorTemperature = sensorReducerFactory('temperature');
+const sensorPm10 = sensorReducerFactory('pm10');
+const sensorPm25 = sensorReducerFactory('pm25');
 
 export default combineReducers({
   routing: routeReducer,
@@ -36,5 +38,7 @@ export default combineReducers({
   sensorLuminosity,
   sensorPressure,
   sensorHumidity,
-  sensorTemperature
+  sensorTemperature,
+  sensorPm10,
+  sensorPm25,
 });

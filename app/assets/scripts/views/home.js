@@ -26,7 +26,9 @@ var Home = React.createClass({
     sensorLuminosity: sensorProps,
     sensorPressure: sensorProps,
     sensorHumidity: sensorProps,
-    sensorTemperature: sensorProps
+    sensorTemperature: sensorProps,
+    sensorPm10: sensorProps,
+    sensorPm25: sensorProps,
   },
 
   // Having measurements every minute is too much. Group them.
@@ -42,7 +44,7 @@ var Home = React.createClass({
   prepareData: function (rawData) {
     var data = null;
 
-    if (rawData) {
+    if (rawData && rawData.length) {
       data = [];
       rawData[0].value = +rawData[0].value;
       let bucket = [rawData[0]];
@@ -127,6 +129,8 @@ var Home = React.createClass({
     this.props._requestSensorData('uv', daysAgo3);
     this.props._requestSensorData('luminosity', daysAgo3);
     this.props._requestSensorData('pressure', daysAgo3);
+    this.props._requestSensorData('pm10', daysAgo3);
+    this.props._requestSensorData('pm25', daysAgo3);
   },
 
   componentDidMount: function () {
@@ -148,6 +152,8 @@ var Home = React.createClass({
     let sensorUvData = this.prepareData(this.props.sensorUv.data);
     let sensorLuminosityData = this.prepareData(this.props.sensorLuminosity.data);
     let sensorPressureData = this.prepareData(this.props.sensorPressure.data);
+    let sensorPm10Data = this.prepareData(this.props.sensorPm10.data);
+    let sensorPm25Data = this.prepareData(this.props.sensorPm25.data);
 
     return (
       <section className='page'>
@@ -167,7 +173,7 @@ var Home = React.createClass({
                 className='card--temp'
                 fetching={this.props.sensorTemperature.fetching}
                 fetched={this.props.sensorTemperature.fetched}
-                title='Temperature'
+                title='Temperatur'
                 lastReading={sensorTemperatureData.last}
                 avgs={sensorTemperatureData.avgs}
                 plotData={sensorTemperatureData.data}
@@ -181,7 +187,7 @@ var Home = React.createClass({
                 className='card--hum'
                 fetching={this.props.sensorHumidity.fetching}
                 fetched={this.props.sensorHumidity.fetched}
-                title='Humidity'
+                title='rel. Luftfeuchte'
                 lastReading={sensorHumidityData.last}
                 avgs={sensorHumidityData.avgs}
                 plotData={sensorHumidityData.data}
@@ -195,7 +201,7 @@ var Home = React.createClass({
                 className='card--uv'
                 fetching={this.props.sensorUv.fetching}
                 fetched={this.props.sensorUv.fetched}
-                title='Uv light'
+                title='Uv Licht'
                 lastReading={sensorUvData.last}
                 avgs={sensorUvData.avgs}
                 plotData={sensorUvData.data}
@@ -209,7 +215,7 @@ var Home = React.createClass({
                 className='card--lux'
                 fetching={this.props.sensorLuminosity.fetching}
                 fetched={this.props.sensorLuminosity.fetched}
-                title='Luminosity'
+                title='Helligkeit'
                 lastReading={sensorLuminosityData.last}
                 avgs={sensorLuminosityData.avgs}
                 plotData={sensorLuminosityData.data}
@@ -223,7 +229,7 @@ var Home = React.createClass({
                 className='card--press'
                 fetching={this.props.sensorPressure.fetching}
                 fetched={this.props.sensorPressure.fetched}
-                title='Air Pressure'
+                title='Luftdruck'
                 lastReading={sensorPressureData.last}
                 avgs={sensorPressureData.avgs}
                 plotData={sensorPressureData.data}
@@ -231,6 +237,34 @@ var Home = React.createClass({
                 axisLineVal={1010}
                 axisLineMin={1000}
                 unit=' hPa'
+              />
+
+              <SensorWidget
+                className='card--pm'
+                fetching={this.props.sensorPm10.fetching}
+                fetched={this.props.sensorPm10.fetched}
+                title='Feinstaub 10 μm'
+                lastReading={sensorPm10Data.last}
+                avgs={sensorPm10Data.avgs}
+                plotData={sensorPm10Data.data}
+                axisLineMax={30}
+                axisLineVal={10}
+                axisLineMin={0}
+                unit=' μg/m³'
+              />
+
+              <SensorWidget
+                className='card--pm'
+                fetching={this.props.sensorPm25.fetching}
+                fetched={this.props.sensorPm25.fetched}
+                title='Feinstaub 2.5 μm'
+                lastReading={sensorPm25Data.last}
+                avgs={sensorPm25Data.avgs}
+                plotData={sensorPm25Data.data}
+                axisLineMax={30}
+                axisLineVal={10}
+                axisLineMin={0}
+                unit=' μg/m³'
               />
 
             </div>
@@ -250,7 +284,9 @@ function selector (state) {
     sensorLuminosity: state.sensorLuminosity,
     sensorPressure: state.sensorPressure,
     sensorHumidity: state.sensorHumidity,
-    sensorTemperature: state.sensorTemperature
+    sensorTemperature: state.sensorTemperature,
+    sensorPm10: state.sensorPm10,
+    sensorPm25: state.sensorPm25,
   };
 }
 

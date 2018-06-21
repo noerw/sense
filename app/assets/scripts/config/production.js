@@ -4,14 +4,17 @@
  */
 module.exports = {
   environment: 'production',
-  api: 'http://opensensemap.org:8000',
+  api: 'https://api.opensensemap.org',
+  title: 'Begga Weer',
   senseBox: {
-    id: '570629b945fd40c8197462fb',
-    'sensorId--uv': '570629b945fd40c8197462fd',
-    'sensorId--luminosity': '570629b945fd40c8197462fe',
-    'sensorId--pressure': '570629b945fd40c8197462ff',
-    'sensorId--humidity': '570629b945fd40c819746300',
-    'sensorId--temperature': '570629b945fd40c819746301'
+    id: '5b26181b1fef04001b69093c',
+    'sensorId--pm25': '5b26181b1fef04001b69093d',
+    'sensorId--pm10': '5b26181b1fef04001b69093e',
+    'sensorId--uv': '5b26181b1fef04001b69093f',
+    'sensorId--luminosity': '5b26181b1fef04001b690940',
+    'sensorId--pressure': '5b26181b1fef04001b690941',
+    'sensorId--humidity': '5b26181b1fef04001b690942',
+    'sensorId--temperature': '5b26181b1fef04001b690943'
   }
 };
 

@@ -9,7 +9,7 @@ module.exports.numDisplay = function (n, dec = 2, suffix = '', nan = '--') {
 };
 
 module.exports.formatDate = function (date) {
-  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
   let hour = date.getHours();
   hour = hour < 10 ? `0${hour}` : hour;
   let minute = date.getMinutes();

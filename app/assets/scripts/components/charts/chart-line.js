@@ -23,7 +23,6 @@ var LineChart = React.createClass({
   },
 
   componentDidMount: function () {
-    // console.log('LineChart componentDidMount');
     // Debounce event.
     this.onWindowResize = _.debounce(this.onWindowResize, 200);
 
@@ -38,13 +37,11 @@ var LineChart = React.createClass({
   },
 
   componentWillUnmount: function () {
-    // console.log('LineChart componentWillUnmount');
     window.removeEventListener('resize', this.onWindowResize);
     this.chart.destroy();
   },
 
-  componentDidUpdate: function (prevProps/* prevState */) {
-    console.log('LineChart componentDidUpdate');
+  componentDidUpdate: function (prevProps) {
     this.chart.pauseUpdate();
     if (prevProps.data !== this.props.data) {
       this.chart.data(this.props.data);

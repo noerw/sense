@@ -60,12 +60,14 @@ var SensorWidget = React.createClass({
                 data={plotData} />
             </div>
             ) : null}
-            {!plotData.length && fetching ? <p className='card__loading'>Loading Data...</p> : null}
+            {!plotData.length ? <p className='card__loading'>
+              {fetching ? 'Lade Daten...' : 'Keine Daten verfügbar'}
+            </p> : null}
           </div>
           <div className='metrics'>
             <ul className='metrics__list'>
-              <li><strong>{avgs !== null ? numDisplay(avgs.today, 1, unit) : '--'}</strong> avg today</li>
-              <li><strong>{avgs !== null ? numDisplay(avgs.yesterday, 1, unit) : '--'}</strong> avg yesterday</li>
+              <li><strong>{avgs !== null ? numDisplay(avgs.today, 1, unit) : '--'}</strong> ∅ heute</li>
+              <li><strong>{avgs !== null ? numDisplay(avgs.yesterday, 1, unit) : '--'}</strong> ∅ gestern</li>
             </ul>
           </div>
         </div>

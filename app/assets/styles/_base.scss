@@ -278,6 +278,12 @@ a:active {
 
   &.card--press {
     .infographic {
+      background: linear-gradient(#0d60dd, rgb(52, 122, 196));
+    }
+  }
+
+  &.card--pm {
+    .infographic {
       background: linear-gradient(#616161, #607D8B);
     }
   }

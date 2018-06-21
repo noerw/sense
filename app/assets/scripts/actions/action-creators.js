@@ -32,13 +32,19 @@ export function fetchSensorData (sensor, toDate) {
         return response.json();
       })
       .then(json => {
+        return json.sort((a, b) => {
+          return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+        });
+      })
+      .then(json => {
         dispatch(receiveSensorData(sensor, json));
         // setTimeout(() => {
         //   dispatch(receiveSensorData(sensor, json));
-        // }, Math.ceil(Math.random() * 5000));
-      }, e => {
+        // }, Math.ceil(Math.random() * 2000));
+      })
+      .catch(e => {
         console.log('e', e);
-        return dispatch(receiveSensorData(null, null, 'Data not available'));
+        return dispatch(receiveSensorData(sensor, null, 'Data not available'));
       });
   };
 }
