@@ -11,7 +11,7 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
+var log = require('fancy-log');
 var exit = require('gulp-exit');
 var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
@@ -133,7 +133,7 @@ gulp.task('javascript', function () {
   }
 
   watcher
-  .on('log', gutil.log)
+  .on('log', log)
   .on('update', bundler);
 
   return bundler();
@@ -149,7 +149,7 @@ gulp.task('vendorScripts', function () {
     require: pkg.dependencies ? Object.keys(pkg.dependencies) : []
   });
   return vb.bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+    .on('error', err => log('Browserify Error', err))
     .pipe(source('vendor.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
@@ -202,7 +202,7 @@ gulp.task('styles', function () {
     .pipe($.sass({
       outputStyle: 'expanded',
       precision: 10,
-      includePaths: ['.'].concat(require('node-bourbon').includePaths).concat(['node_modules/jeet/scss'])
+      includePaths: ['.'].concat(require('node-bourbon').includePaths).concat(['node_modules'])
     }))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/assets/styles'))

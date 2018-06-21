@@ -114,9 +114,9 @@ a:active {
 }
 
 .site-headline {
-  @include col(12/12);
+  @include column(12/12);
   @include media(medium-up) {
-    @include col(6/12);
+    @include column(6/12);
   }
 }
 
@@ -171,10 +171,10 @@ a:active {
   margin-bottom: 2rem;
 
   @include media(large-up) {
-    @include col(6/12, $cycle: 2);
+    @include column(6/12, $cycle: 2);
   }
   @include media(xlarge-up) {
-    @include col(4/12, $cycle: 3, $uncycle: 2);
+    @include column(4/12, $cycle: 3);
   }
 
   &__header {
@@ -237,7 +237,7 @@ a:active {
     &__list  {
       @extend .clearfix;
       li {
-        @include col(6/12);
+        @include column(6/12);
         text-align: center;
 
         &:not(:last-child) {
