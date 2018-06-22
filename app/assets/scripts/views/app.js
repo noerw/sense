@@ -2,6 +2,8 @@
 import React from 'react';
 import config from '../config';
 
+document.title += ` - ${config.title}`;
+
 var App = React.createClass({
   displayName: 'App',
 
@@ -27,7 +29,7 @@ var App = React.createClass({
           {this.props.children}
         </main>
         <footer className='site-footer' role='footer'>
-          <p> Made with love by <a href='https://developmentseed.org' title='Visit Development Seed website' target="_blank">Development Seed</a> using <a href={'https://opensensemap.org/explore/' + config.senseBox.id} title='Visit openSenseMap website' target="_blank">openSenseMap</a> data </p>
+          <p>by <a href='https://developmentseed.org' title='Visit Development Seed website' target="_blank">Development Seed</a> using <a href={'https://opensensemap.org/explore/' + config.senseBox.id} title='Visit openSenseMap website' target="_blank">openSenseMap</a> data.</p>
         </footer>
       </div>
     );

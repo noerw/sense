@@ -2,7 +2,7 @@
 
 Simple dashboard that taps into the [opensensemap](http://opensensemap.org/) api to show the measurements for a specific [sensebox](www.sensebox.de/en/).
 
-![devseed-sense-dashboard.png](devseed-sense-dashboard.png)
+![devseed-sense-dashboard.png](app/assets/graphics/meta/default-meta-image.png)
 
 ## Development environment
 To set up the development environment for this website, you'll need to install the following on your system:

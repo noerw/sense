@@ -150,8 +150,8 @@ var Home = React.createClass({
     let sensorTemperatureData = this.prepareData(this.props.sensorTemperature.data);
     let sensorHumidityData = this.prepareData(this.props.sensorHumidity.data);
     let sensorUvData = this.prepareData(this.props.sensorUv.data);
-    let sensorLuminosityData = this.prepareData(this.props.sensorLuminosity.data);
-    let sensorPressureData = this.prepareData(this.props.sensorPressure.data);
+    // let sensorLuminosityData = this.prepareData(this.props.sensorLuminosity.data);
+    // let sensorPressureData = this.prepareData(this.props.sensorPressure.data);
     let sensorPm10Data = this.prepareData(this.props.sensorPm10.data);
     let sensorPm25Data = this.prepareData(this.props.sensorPm25.data);
 
@@ -211,7 +211,7 @@ var Home = React.createClass({
                 unit=' μW/cm²'
               />
 
-              <SensorWidget
+              {/* <SensorWidget
                 className='card--lux'
                 fetching={this.props.sensorLuminosity.fetching}
                 fetched={this.props.sensorLuminosity.fetched}
@@ -237,7 +237,7 @@ var Home = React.createClass({
                 axisLineVal={1010}
                 axisLineMin={1000}
                 unit=' hPa'
-              />
+              /> */}
 
               <SensorWidget
                 className='card--pm'

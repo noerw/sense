@@ -1,0 +1,16 @@
+{
+  "short_name": "openSenseMap dashboard",
+  "name": "openSenseMap dashboard",
+  "icons": [
+    {
+      "src":"assets/graphics/meta/apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./?utm_source=homescreen",
+  "scoe": "./",
+  "background_color": "#ffffff",
+  "theme_color": "#4EAF47",
+  "display": "standalone"
+}
